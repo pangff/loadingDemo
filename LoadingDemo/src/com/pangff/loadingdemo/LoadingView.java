@@ -2,10 +2,12 @@ package com.pangff.loadingdemo;
 
 import android.app.Activity;
 import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
-public class LoadingView extends View{
+public class LoadingView extends RelativeLayout{
 	private View view;
 	public LoadingView(Context context) {
 		super(context);
@@ -20,4 +22,10 @@ public class LoadingView extends View{
 	public void removeLoadingFrom(ViewGroup anchor){
 		anchor.removeView(view);
 	}
+
+	@Override
+	public boolean onInterceptTouchEvent(MotionEvent ev) {
+		return true;
+	}
+	
 }
